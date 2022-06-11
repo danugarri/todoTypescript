@@ -1,23 +1,28 @@
 import React, { useRef } from 'react';
 
-export const TodoForm: React.FC<{showTooltip:() => void}> = (props) => {
-
-  const {showTooltip} = props;
- 
-  const htmlInputText = useRef<HTMLInputElement>();
-
-	const addToDo = (event: React.FormEvent): void => {
-		event.preventDefault(); 
+export const TodoForm: React.FC<{ showTooltip: () => void, addTodoHandler:(todoText: string) => void }> = (props) => {
+	const { showTooltip, addTodoHandler } = props;
+	//  Reference to the text input
+	const htmlInputText = useRef<HTMLInputElement>(null);			
+	//  onSubmit
+	const onSubmitHandler = (event: React.FormEvent): void => {
+		event.preventDefault();
+		const enteredText = htmlInputText.current!.value;
+		addTodoHandler(enteredText);
 	};
 
 	return (
 		<React.Fragment>
-			<form onSubmit={addToDo}>
-				<label htmlFor='todo' onMouseOver={showTooltip} onMouseOut= {showTooltip}>
+			<form onSubmit={onSubmitHandler}>
+				<label htmlFor='todo' onMouseOver={showTooltip} onMouseOut={showTooltip}>
 					Añade una tarea
 				</label>
-				<input type='text' id='todo' />
+				<br />
+				<input type='text' id='todo' ref= {htmlInputText} />
 			</form>
+			<button type='submit' onClick={onSubmitHandler}>
+				Añadir
+			</button>
 		</React.Fragment>
 	);
 };
