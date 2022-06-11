@@ -1,13 +1,22 @@
+import { useState } from 'react';
 import './App.css';
-import { Todos } from './components/Todos';
+import { TodoForm } from './components/form/TodoForm';
+import { Todos } from './components/todos/Todos';
+import { FormTooltip } from './components/tooltip/FormTooltip';
 import { Todo } from './models/todos.model';
 function App() {
+	const [tooltip, setTooltip] = useState(true);
+	const showTooltip = () => setTooltip(!tooltip);
 	//  Instanciate objects from the Todo class
 	const todos = [new Todo('React'), new Todo('Typescript'), new Todo('Jest')];
 
 	return (
 		<div>
-			<Todos items={todos} />
+			<TodoForm showTooltip={showTooltip} />
+			<section>
+				{!tooltip && <FormTooltip />}
+				<Todos items={todos} />
+			</section>
 		</div>
 	);
 }

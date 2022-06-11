@@ -1,12 +1,13 @@
 import React from 'react';
-import { TodoProps } from '../models/todos.model';
-import { TodoItem } from './TodoList';
+import './Todos.css';
+import { TodoProps } from '../../models/todos.model';
+import { TodoItem } from '../todoList/TodoList';
 
 export const Todos: React.FC<TodoProps> = (props) => {
 	const { items } = props;
 
 	return (
-		<ul>
+		<ul className='todos'>
 			{items.map((item) => (
 				<TodoItem item={item} />
 			))}

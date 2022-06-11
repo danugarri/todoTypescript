@@ -1,5 +1,5 @@
 import React from 'react';
-import { Todo } from '../models/todos.model';
+import { Todo } from '../../models/todos.model';
 
 export const TodoItem: React.FC<{ item: Todo }> = (props) => {
 	const { item } = props;
