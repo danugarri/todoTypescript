@@ -20,3 +20,8 @@ export class Todo {
         this.id= new Date().toISOString();
     }
 }
+
+// props
+export type TodoProps = {
+    items:Todo[]
+}

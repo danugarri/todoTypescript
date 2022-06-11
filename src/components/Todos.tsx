@@ -1,8 +1,8 @@
 import React from 'react';
-import { Todo } from '../models/todos.model';
+import { TodoProps } from '../models/todos.model';
 import { TodoItem } from './TodoList';
 
-export const Todos: React.FC<{items:Todo[]}> = (props) => {
+export const Todos: React.FC<TodoProps> = (props) => {
     const {items}= props;
 
     return (
