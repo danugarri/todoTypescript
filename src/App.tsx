@@ -15,7 +15,8 @@ function App() {
 	//  Add todo item to the todo list
 	const addTodoHandler= (todoText: string) => {
 		const newTodo= new Todo(todoText);
-		setTodo(prev => [...prev, newTodo]);
+		setTodo(prev => prev.concat(newTodo));
+		console.log(newTodo.id)
 	}
 
 	return (

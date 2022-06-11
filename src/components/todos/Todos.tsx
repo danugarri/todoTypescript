@@ -9,7 +9,7 @@ export const Todos: React.FC<TodoProps> = (props) => {
 	return (
 		<ul className='todos'>
 			{items.map((item) => (
-				<TodoItem item={item} />
+				<TodoItem item={item} key= {item.text} />
 			))}
 		</ul>
 	);
