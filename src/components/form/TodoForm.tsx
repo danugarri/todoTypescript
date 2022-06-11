@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import { checkInput } from '../../shared/helpers/checkInputError';
 
 export const TodoForm: React.FC<{ showTooltip: () => void, addTodoHandler:(todoText: string) => void }> = (props) => {
 	const { showTooltip, addTodoHandler } = props;
@@ -8,7 +9,9 @@ export const TodoForm: React.FC<{ showTooltip: () => void, addTodoHandler:(todoT
 	const onSubmitHandler = (event: React.FormEvent): void => {
 		event.preventDefault();
 		const enteredText = htmlInputText.current!.value;
-		addTodoHandler(enteredText);
+		
+		// checking input errors
+		checkInput(enteredText, addTodoHandler);
 	};
 
 	return (

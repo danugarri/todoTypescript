@@ -4,6 +4,7 @@ import { TodoForm } from './components/form/TodoForm';
 import { Todos } from './components/todos/Todos';
 import { FormTooltip } from './components/tooltip/FormTooltip';
 import { Todo } from './models/todos.model';
+
 function App() {
 
 	const [tooltip, setTooltip] = useState<boolean>(false);
