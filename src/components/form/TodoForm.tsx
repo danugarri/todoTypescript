@@ -16,16 +16,16 @@ export const TodoForm: React.FC<{ showTooltip: () => void, addTodoHandler:(todoT
 
 	return (
 		<React.Fragment>
-			<form onSubmit={onSubmitHandler}>
+			<form onSubmit={onSubmitHandler} className='form' >
 				<label htmlFor='todo' onMouseOver={showTooltip} onMouseOut={showTooltip}>
 					Añade una tarea
 				</label>
 				<br />
 				<input type='text' id='todo' ref= {htmlInputText} />
+				<button type='submit' >
+					Añadir
+				</button>
 			</form>
-			<button type='submit' onClick={onSubmitHandler}>
-				Añadir
-			</button>
 		</React.Fragment>
 	);
 };

@@ -1,4 +1,4 @@
-export 	const checkInput = (enteredText:string,addTodoHandler: Function) => {
+export 	const checkInput = (enteredText:string,addTodoHandler: Function): void => {
         if(	enteredText.length > 0 ) {
             addTodoHandler(enteredText);
         }
