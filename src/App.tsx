@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { TodoForm } from './components/form/TodoForm';
 import { Todos } from './components/todos/Todos';
@@ -19,13 +19,22 @@ function App() {
 		setTodo(prev => prev.concat(newTodo));
 		console.log(newTodo.id)
 	}
+	//  remove todo
+	const removeTodo= (id:string) => {
+		// option 1
+		// const modifiedTodos= todos.filter(item => item.id !== id );
+		// setTodo(modifiedTodos);
+		// preferred option 2
+		setTodo(prev => prev.filter(prev => prev.id !== id));
+		console.log(id);
+	}
 
 	return (
 		<div>
 			<TodoForm showTooltip={showTooltip} addTodoHandler= {addTodoHandler}/>
 			<section>
 				{tooltip && <FormTooltip />}
-				<Todos items={todos} />
+				<Todos items={todos} removeTodo= {removeTodo} />
 			</section>
 		</div>
 	);

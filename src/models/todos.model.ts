@@ -1,3 +1,4 @@
+
 //  type keyword
 export type TodoExample = {
 	items: string[];
@@ -24,4 +25,5 @@ export class Todo {
 // props
 export type TodoProps = {
 	items: Todo[];
+	removeTodo: (id:string) => void;
 };
