@@ -24,6 +24,6 @@ export class Todo {
 
 // props
 export type TodoProps = {
-	items: Todo[];
+	items: Todo[];	
 	removeTodo: (id:string) => void;
 };

@@ -9,7 +9,7 @@ function App() {
 
 	const [tooltip, setTooltip] = useState<boolean>(false);
 	//  Instanciating objects from the Todo class
-	const testingTodos = [new Todo('React'), new Todo('Typescript'), new Todo('Jest')];
+	const testingTodos = [new Todo('React')];
 	const [todos, setTodo] = useState<Todo[]>(testingTodos);
 	// Show tooltip whrn the mouse is over the label in the form
 	const showTooltip = () => setTooltip(!tooltip);
@@ -31,7 +31,7 @@ function App() {
 
 	return (
 		<div>
-			<TodoForm showTooltip={showTooltip} addTodoHandler= {addTodoHandler}/>
+			<TodoForm showTooltip={showTooltip} addTodoHandler= {addTodoHandler} todos= {todos}/>
 			<section>
 				{tooltip && <FormTooltip />}
 				<Todos items={todos} removeTodo= {removeTodo} />

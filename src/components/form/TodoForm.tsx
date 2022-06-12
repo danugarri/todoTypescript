@@ -1,17 +1,19 @@
 import React, { useRef } from 'react';
+import { Todo } from '../../models/todos.model';
 import { checkInput } from '../../shared/helpers/checkInputError';
 
-export const TodoForm: React.FC<{ showTooltip: () => void, addTodoHandler:(todoText: string) => void }> = (props) => {
-	const { showTooltip, addTodoHandler } = props;
+export const TodoForm: React.FC<{ showTooltip: () => void, addTodoHandler:(todoText: string) => void, todos: Todo[] }> = (props) => {
+	const { showTooltip, addTodoHandler, todos } = props;
 	//  Reference to the text input
 	const htmlInputText = useRef<HTMLInputElement>(null);			
 	//  onSubmit
 	const onSubmitHandler = (event: React.FormEvent): void => {
 		event.preventDefault();
 		const enteredText = htmlInputText.current!.value;
+	
 		
 		// checking input errors
-		checkInput(enteredText, addTodoHandler);
+		checkInput({enteredText, addTodoHandler, todos});
 	};
 
 	return (

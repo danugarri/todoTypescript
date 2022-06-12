@@ -1,9 +1,16 @@
-export 	const checkInput = (enteredText:string,addTodoHandler: Function): void => {
-        if(	enteredText.length > 0 ) {
-            addTodoHandler(enteredText);
-        }
-        else{
+import swal from "sweetalert";
+import { CheckInputParams } from "../../models/checkInput.model";
 
-            console.error("Introduce una tarea");
-        };
+
+export 	const checkInput = (params:CheckInputParams): void => {
+    const {enteredText,addTodoHandler,todos }= params;
+
+    if(	enteredText.length > 0 ) {
+        const exists= todos.find(item => item.text === enteredText);
+        exists ? swal('Ya has introducido esa tarea','', 'error') :
+        addTodoHandler(enteredText);
+    }
+    else{
+        console.error("Introduce una tarea");
+    };
     };
