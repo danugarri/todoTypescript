@@ -12,5 +12,6 @@ export 	const checkInput = (params:CheckInputParams): void => {
     }
     else{
         console.error("Introduce una tarea");
+        swal("Introduce una tarea","","warning");
     };
     };
