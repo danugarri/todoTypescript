@@ -4,12 +4,6 @@
 .App-link {
   color: #61dafb;
 }
-.column{
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-around; */
-  margin-right: 50px;
-}
 .form{
   margin: 0 auto;
   width: 70vw;
@@ -23,9 +17,9 @@ button{
   border-radius: 3px;
   cursor: pointer;
   padding:5px;
-}
-button:hover{
-  background-color:rgb(240, 232, 128); 
+  &:hover{
+    background-color:rgb(240, 232, 128); 
+  }
 }
 label{
   cursor: cell;
@@ -44,4 +38,11 @@ li{
   padding: 0.5rem;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  &:hover{
+    background-color: rgb(236, 188, 188);
+  }
+}
+.red-li{
+  background-color: rgb(236, 188, 188);
 }

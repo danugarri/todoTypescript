@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import './App.scss';
 import { TodoForm } from './components/form/TodoForm';
 import { Todos } from './components/todos/Todos';
 import { FormTooltip } from './components/tooltip/FormTooltip';
